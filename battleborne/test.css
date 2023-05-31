@@ -1,0 +1,19 @@
+.animation {
+    width: 200px;
+    height: 100px;
+    background-image: url(sprites/warrior_default.png);
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center; 
+    animation: frames 0.4s 3; 
+  }
+  
+  @keyframes frames {
+    0% { background-image: url('sprites/warrior_default.png'); } 
+    20% { background-image: url('sprites/warrior_atk1.png'); }
+    40% { background-image: url('sprites/warrior_atk2.png.png'); }
+    60% { background-image: url('sprites/warrior_atk3.png'); }
+    80% { background-image: url('sprites/warrior_atk4.png'); }
+    100% { background-image: url('sprites/warrior_default.png'); } 
+  }
+  

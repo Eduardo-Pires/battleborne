@@ -1,12 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criação de personagem</title>
-</head>
+    <title>CRIAÇÃO DE PERSONAGEM</title>
+    <link rel="stylesheet" href="character_creation.css">
 <body>
-    
+    <header>
+        <h1>Criação de Personagens</h1>
+    </header>
+    <main>
+        <form>
+            <div>
+                <label for="name">nome:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div>
+                <ul>
+                    <li>
+                        <button id="warrior" name="warrior"><img src="images/warrior.png" width="200" alt=""></button>
+                    </li>
+                    <li>
+                        <button id="mage" name="mage"><img src="images/warrior.png" width="200" alt=""></button>
+                    </li>
+                    <li>
+                        <button id="archer" name="archer"><img src="images/warrior.png" width="200" alt=""></button>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <label for="ataque">ataque</label>
+                <input type="range" max="10" min="1" name="ataque" id="ataque">
+            </div>
+            <div>
+                <label for="vida">vida:</label>
+                <input type="range"  max="10" min="1"  name="vida" id="vida">
+            </div>
+            <div>
+                <label for="defesa">defesa:</label>
+                <input type="range"  max="10" min="1"  name="defesa" id="defesa">
+            </div>
+        </form>
+    </main>
 </body>
 </html>
