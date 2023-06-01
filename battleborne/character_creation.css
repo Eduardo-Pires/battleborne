@@ -66,6 +66,10 @@ body {
     padding: 0;
   }
   
+  input[type="submit"] {
+    margin-top: 20px;
+  }
+
   button img {
     max-width: 100%;
     height: auto;
