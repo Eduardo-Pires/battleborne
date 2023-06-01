@@ -1,19 +1,20 @@
 /* Estilos gerais */
+
+html{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(images/a\ simple\ pixel\ \ 1.png);
+  background-color: #0B0910;
+}
+
 body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(images/a\ simple\ pixel\ \ 1.png);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    color: azure;
-    background-size: cover;
-    background-position: center; 
-    background-image: url(images/7481714.jpg);
-    
   }
-
-  main > form > div{
-    background-color: rgba(247, 0, 0, 0.39);
-  }
-
 
   
   h1 {
@@ -43,7 +44,7 @@ body {
   input[type="range"] {
     height: 5px;
     padding: 10px;
-    color: black;
+    
   }
   
   ul {
@@ -70,12 +71,19 @@ body {
     height: auto;
   }
   
-  /* Estilos específicos */
+/*Estilos específicos*/
   #name {
     width: 50%;
-    margin: 0 auto; /* Centraliza horizontalmente */
+    margin: 0 auto;
   }
   
+  #warrior > img,
+  #mage > img,
+  #archer > img
+  {
+    height: 200px;
+  }
+
   #warrior,
   #mage,
   #archer {

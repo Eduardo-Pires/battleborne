@@ -6,42 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRIAÇÃO DE PERSONAGEM</title>
     <link rel="stylesheet" href="character_creation.css">
-<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<body class="text-light">
     <header>
-        <h1>Criação de Personagens</h1>
+        <h1 >Criação de Personagens</h1>
     </header>
-    <main>
+    <main class="text-center">
         <form>
             <div>
-                <label for="name">nome:</label>
+                <label class="form-label" for="name">nome:</label>
                 <input type="text" name="name" id="name">
             </div>
             <div>
                 <ul>
                     <li>
-                        <button id="warrior" name="warrior"><img src="images/warrior.png" width="200" alt=""></button>
+                        <button id="warrior" name="warrior"><img src="images/warrior.png"  alt=""></button>
                     </li>
                     <li>
-                        <button id="mage" name="mage"><img src="images/warrior.png" width="200" alt=""></button>
+                        <button id="mage" name="mage"><img src="images/mage.png" alt=""></button>
                     </li>
                     <li>
-                        <button id="archer" name="archer"><img src="images/warrior.png" width="200" alt=""></button>
+                        <button id="archer" name="archer"><img src="images/archer.png"  alt=""></button>
                     </li>
                 </ul>
             </div>
             <div>
-                <label for="ataque">ataque</label>
-                <input type="range" max="10" min="1" name="ataque" id="ataque">
+                <label class="form-label" for="ataque" class="win10-thumb">ataque</label>
+                <input type="range" class="form-range" max="10" min="1" name="ataque" id="ataque">
             </div>
             <div>
-                <label for="vida">vida:</label>
-                <input type="range"  max="10" min="1"  name="vida" id="vida">
+                <label class="form-label" for="vida">vida:</label>
+                <input class="form-range" type="range"  max="10" min="1"  name="vida" id="vida">
             </div>
             <div>
-                <label for="defesa">defesa:</label>
-                <input type="range"  max="10" min="1"  name="defesa" id="defesa">
+                <label class="form-label" for="defesa">defesa:</label>
+                <input type="range" class="form-range"  max="10" min="1"  name="defesa" id="defesa">
             </div>
         </form>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
