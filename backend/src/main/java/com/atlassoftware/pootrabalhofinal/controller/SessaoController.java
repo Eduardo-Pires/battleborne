@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/session")
+@CrossOrigin
 public class SessaoController {
     @Autowired
     private SessaoService sessaoService;
@@ -18,7 +19,6 @@ public class SessaoController {
     }
 
     @PostMapping
-    @CrossOrigin(origins = "http://localhost:8080")
     public ResponseEntity<String> createNew(@RequestBody Requisicao requisicao) {
         sessaoService.criarNovaSessao(requisicao);
         return ResponseEntity.ok("Deu Atlético");
