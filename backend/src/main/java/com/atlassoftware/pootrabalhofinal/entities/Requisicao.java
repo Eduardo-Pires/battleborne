@@ -2,7 +2,7 @@ package com.atlassoftware.pootrabalhofinal.entities;
 
 public class Requisicao {
     private String nomeReq;
-    private Long idProfissao;
+    private String profissao;
     private Integer ataque;
     private Integer vida;
     private Integer defesa;
@@ -15,12 +15,12 @@ public class Requisicao {
         this.nomeReq = nome;
     }
 
-    public Long getIdProfissao() {
-        return idProfissao;
+    public String getProfissao() {
+        return profissao;
     }
 
-    public void setIdProfissao(Long idProfissao) {
-        this.idProfissao = idProfissao;
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
     }
 
     public Integer getAtaque() {

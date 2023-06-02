@@ -25,9 +25,9 @@ public class PersonagemController {
         return ResponseEntity.ok("Hello from Character");
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<Personagem> createNew(@RequestBody Requisicao req) {
-        Optional<Profissao> profissao = profissaoRepository.findById(req.getIdProfissao());
+        Optional<Profissao> profissao = profissaoRepository.findById(req.getProfissao());
         Personagem personagem = new Personagem.PersonagemBuilder()
                 .setNome(req.getNomeReq())
                 .setProfissao(profissao.get())
@@ -35,5 +35,5 @@ public class PersonagemController {
                 .build();
         personagemRepository.save(personagem);
         return ResponseEntity.ok(personagem);
-    }
+    }*/
 }
