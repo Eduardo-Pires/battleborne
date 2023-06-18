@@ -1,8 +1,12 @@
+@font-face{
+    font-family: game_font;
+    src: url("fonts/Pokemon_GB.ttf");
+}
+
 body {
     background-image: url("teste.png");
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: Arial, sans-serif;
 }
 
 img {
@@ -60,10 +64,18 @@ progress[value]::-webkit-progress-value {
     gap: 10px;
     margin-top: 20px;
     justify-items: center;
+
+}
+
+#battle_frame{
+    position: absolute;
+    top: 81%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .attack-cell {
-    background-color: #4CAF50;
+    background-color: transparent;
     width: 200px;
     border-radius: 5px;
     padding: 10px;
@@ -72,8 +84,9 @@ progress[value]::-webkit-progress-value {
 
 button {
     background-color: transparent;
+    font-family: game_font;
     border: none;
-    color: white;
+    color: rgb(55, 55, 55);
     font-size: 16px;
     cursor: pointer;
 }
