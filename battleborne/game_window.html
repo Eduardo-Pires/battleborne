@@ -13,49 +13,72 @@
           <progress value="100" max="100"></progress>
         </div>
         <img src="sprites/warrior_default.png" alt="Herói">
-      </div>
-      
-      <div class="character" id="inimigo">
+    </div>
+
+    <div class="character" id="inimigo">
         <div class="health-bar">
            <progress value="100" max="100"></progress>
         </div>
-        <img src="sprites/warrior_atk2.png.png" alt="Inimigo">
-      </div>
+        <img src="images/gustavo_lima.jpg" alt="Inimigo">
+    </div>
+
+    <img src="images/battle_frame.png" id="battle_frame">
+    <div class="attack-grid">
+        <div class="attack-cell">
+            <button id="ataque1" class="attackButton">Ataque 1</button>
+        </div>
+        <div class="attack-cell">
+            <button id="ataque2" class="attackButton">Ataque 2</button>
+        </div>
+        <div class="attack-cell">
+            <button id="ataque3" class="attackButton">Ataque 3</button>
+        </div>
+        <div class="attack-cell">
+            <button id="ataque4" class="attackButton">Ataque 4</button>
+        </div>
+    </div>
+
+    <script>
+      function enemyAtack(){
+          var buttons = Array.from(document.getElementsByClassName("attackButton"));
+
+          buttons.forEach(function(button) {
+              button.disabled = true;
+          });
+          
+          setTimeout(function() {
+          health_bar = document.querySelector("#heroi > div > progress");
+          health_bar.value = health_bar.value - 10;
+          }, 800);
+          buttons.forEach(function(button) {
+              button.disabled = false;
+          });
+      }
       
-      <img src="images/battle_frame.png" id="battle_frame">
-      <div class="attack-grid">
-        <div class="attack-cell">
-          <button onclick="ataque1()">Ataque 1</button>
-        </div>
-        <div class="attack-cell">
-          <button onclick="ataque2()">Ataque 2</button>
-        </div>
-        <div class="attack-cell">
-          <button onclick="ataque3()">Ataque 3</button>
-        </div>
-        <div class="attack-cell">
-          <button onclick="ataque4()">Ataque 4</button>
-        </div>
-      </div>
-      <script>
-        function ataque1() {
-            health_bar = document.querySelector("#inimigo > div > progress");
-            health_bar.value = health_bar.value - 10;
-        }
-        
-        function ataque2() {
+      function ataque1() {
+        health_bar = document.querySelector("#inimigo > div > progress");
+        health_bar.value = health_bar.value - 10;
+          enemyAtack();
+      }
+      
+      function ataque2() {
         // Lógica para o segundo ataque
-        }
-        
-        function ataque3() {
-        // Lógica para o terceiro ataque
-        }
-        
-        function ataque4() {
-        // Lógica para o quarto ataque
-        }
-      </script>
+      }
       
+      function ataque3() {
+        // Lógica para o terceiro ataque
+      }
+      
+      function ataque4() {
+        // Lógica para o quarto ataque
+      }
+      
+      window.onload = function() {
+          document.getElementById("ataque1").addEventListener("click", ataque1);
+          document.getElementById("ataque2").addEventListener("click", ataque2);
+          document.getElementById("ataque3").addEventListener("click", ataque3);
+          document.getElementById("ataque4").addEventListener("click", ataque4);
+      };
+    </script>
 </body>
 </html>
-
