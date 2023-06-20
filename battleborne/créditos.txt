@@ -1,0 +1,12 @@
+Os sprites foram gerados no site a seguir:
+https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator/#?body=Body_color_light&head=Human_male_light
+
+Os backgrounds da tela de titulo foram criados utilizando a IA (Gencraft), link abaixo:
+https://gencraft.com/generate
+
+background do estágio da floresta dos goblins e das ruinas ancestrais (primeiro e segundo estágio):
+
+https://craftpix.net/freebies/free-forest-battle-backgrounds/
+
+https://craftpix.net/freebies/free-elven-land-game-battle-backgrounds/
+

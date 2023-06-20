@@ -3,11 +3,7 @@
     src: url("fonts/Pokemon_GB.ttf");
 }
 
-body {
-    background-image: url("teste.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 img {
     margin-top: 10px;
