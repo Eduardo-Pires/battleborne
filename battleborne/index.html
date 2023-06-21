@@ -28,11 +28,13 @@
             try {
                 var response = await fetch(`http://localhost:8080/session/search?nome=${nome}`);
                 var data = await response.json();
+                sessionStorage.setItem("personagem", JSON.stringify(data));
 
-                console.log(data);
+                window.location.href = "http://127.0.0.1:3000/game_window.html";
             }
             catch(error) {
                 alert("Esse personagem não existe");
+                console.log(error);
             }
         }
     </script>
