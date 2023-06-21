@@ -8,6 +8,30 @@ function alteraValorProfissao(valor) {
     tipoProfissao = valor;
 }
 
+function calculaSoma() {
+    const range1 =  document.getElementById("ataque");
+    const range2 =  document.getElementById("vida");
+    const range3 =  document.getElementById("defesa");
+
+    var range1Value = parseInt(range1.value);
+    var range2Value = parseInt(range2.value);
+    var range3Value = parseInt(range3.value);
+    
+    var sum = range1Value + range2Value + range3Value;
+    
+    if (sum > 10) {
+        window.alert("Soma maior que 10");
+        range1.value = 0;
+        range2.value = 0;
+        range3.value = 0;
+        document.getElementById("sum").textContent = "Soma: " + 0;
+    }
+    else
+    {
+        document.getElementById("sum").textContent = "Soma: " + sum;
+    }  
+}
+
 guerreiro.addEventListener("click", () => alteraValorProfissao("Guerreiro"));
 mago.addEventListener("click", () => alteraValorProfissao("Mago"));
 arqueiro.addEventListener("click", () => alteraValorProfissao("Arqueiro"));
