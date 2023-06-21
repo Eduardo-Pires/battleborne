@@ -6,27 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRIAÇÃO DE PERSONAGEM</title>
     <link rel="stylesheet" href="character_creation.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<body class="text-light">
+<body>
     <header>
-        <h1 >Criação de Personagens</h1>
+        <h1>Criação de Personagens</h1>
     </header>
-    <main class="text-center">
-        <form type="get" class="mainForm">
+    <main>
+        <form>
             <div>
-                <label class="form-label" for="name">nome:</label>
+                <label for="name">nome:</label>
                 <input type="text" name="name" id="name">
             </div>
             <div>
                 <ul>
                     <li>
-                        <button type="button" id="warrior" name="warrior"><img src="images/warrior.png"  alt=""></button>
+                        <button id="warrior" name="warrior"><img src="images/warrior.png" width="200" alt=""></button>
                     </li>
                     <li>
-                        <button type="button" id="mage" name="mage"><img src="images/mage.png" alt=""></button>
+                        <button id="mage" name="mage"><img src="images/warrior.png" width="200" alt=""></button>
                     </li>
                     <li>
-                        <button type="button" id="archer" name="archer"><img src="images/archer.png"  alt=""></button>
+                        <button id="archer" name="archer"><img src="images/warrior.png" width="200" alt=""></button>
                     </li>
                 </ul>
             </div>
@@ -44,8 +43,10 @@
                 <label class="form-label" for="defesa">defesa:</label>
                 <input type="range" class="form-range"  max="10" min="0" value="1" name="defesa" id="defesa" oninput="calculaSoma()">
             </div>
-            <input type="submit" class="btn btn-primary btn-lg" value="Finalizar">
         </form>
+        <button onclick="simular()">Enviar</button>
+        <script>
+        </script>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="script.js"></script>    
