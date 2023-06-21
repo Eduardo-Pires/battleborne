@@ -1,22 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
-
     <title>BATTLEBORNE HOME</title>
 </head>
 <body>
     <main>
         <h1>BATTLEBORNE</h1>
-        <form action="" method="post">
+        <form id="mainForm">
             <input type="text" name="nome" id="nome" placeholder="nome do herói">
-            <input type="submit" value="ENTRAR">    
+            <input type="submit" value="ENTRAR">
         </form>
-            <a href="character_creation.html">não tem criou seu herói ainda?</a>
-
+            <a href="character_creation.html">não tem seu herói ainda? crie agora mesmo</a>
     </main>
+    <script>
+        const form = document.querySelector("form");
+        form.onsubmit = enviaForm;
+
+        async function enviaForm(e) {
+            e.preventDefault();
+
+            var nome = document.querySelector("#nome").value;
+
+            try {
+                var response = await fetch(`http://localhost:8080/session/search?nome=${nome}`);
+                var data = await response.json();
+
+                console.log(data);
+            }
+            catch(error) {
+                alert("Esse personagem não existe");
+            }
+        }
+    </script>
 </body>
 </html>

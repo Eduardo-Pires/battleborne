@@ -22,4 +22,8 @@ public class SessaoService {
                 .build();
         sessaoRepository.save(sessao);
     }
+
+    public Sessao returnExistingSession(String nome) {
+        return sessaoRepository.findByNome(nome);
+    }
 }
