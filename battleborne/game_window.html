@@ -89,6 +89,9 @@
           if (sessionStorage.length === 0) {
             window.location.href = "http://127.0.0.1:3000/";
           }
+
+          var character = JSON.parse(sessionStorage.getItem("personagem"));
+          console.log(character);
       };
     </script>
 </body>
