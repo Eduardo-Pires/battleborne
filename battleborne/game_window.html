@@ -52,7 +52,7 @@
           buttons.forEach(function(button) {
               button.disabled = true;
           });
-          
+
           setTimeout(function() {
           health_bar = document.querySelector("#heroi > div > progress");
           health_bar.value = health_bar.value - 10;
@@ -61,30 +61,34 @@
               button.disabled = false;
           });
       }
-      
+
       function ataque1() {
         health_bar = document.querySelector("#inimigo > div > progress");
         health_bar.value = health_bar.value - 10;
           enemyAtack();
       }
-      
+
       function ataque2() {
         // Lógica para o segundo ataque
       }
-      
+
       function ataque3() {
         // Lógica para o terceiro ataque
       }
-      
+
       function ataque4() {
         // Lógica para o quarto ataque
       }
-      
+
       window.onload = function() {
           document.getElementById("ataque1").addEventListener("click", ataque1);
           document.getElementById("ataque2").addEventListener("click", ataque2);
           document.getElementById("ataque3").addEventListener("click", ataque3);
           document.getElementById("ataque4").addEventListener("click", ataque4);
+
+          if (sessionStorage.length === 0) {
+            window.location.href = "http://127.0.0.1:3000/";
+          }
       };
     </script>
 </body>
