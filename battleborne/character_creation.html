@@ -6,45 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRIAÇÃO DE PERSONAGEM</title>
     <link rel="stylesheet" href="character_creation.css">
-<body>
-    <header>
-        <h1>Criação de Personagens</h1>
-    </header>
-    <main>
-        <form>
-            <div>
-                <label for="name">nome:</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div>
-                <ul>
-                    <li>
-                        <button id="warrior" name="warrior"><img src="images/warrior.png" width="200" alt=""></button>
-                    </li>
-                    <li>
-                        <button id="mage" name="mage"><img src="images/warrior.png" width="200" alt=""></button>
-                    </li>
-                    <li>
-                        <button id="archer" name="archer"><img src="images/warrior.png" width="200" alt=""></button>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <label for="ataque">ataque</label>
-                <input type="range" max="10" min="1" name="ataque" id="ataque">
-            </div>
-            <div>
-                <label for="vida">vida:</label>
-                <input type="range"  max="10" min="1"  name="vida" id="vida">
-            </div>
-            <div>
-                <label for="defesa">defesa:</label>
-                <input type="range"  max="10" min="1"  name="defesa" id="defesa">
-            </div>
-        </form>
-        <button onclick="simular()">Enviar</button>
-        <script>
-        </script>
-    </main>
-</body>
-</html>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <body class="text-light">
+        <header>
+            <h1 >Criação de Personagens</h1>
+        </header>
+        <main class="text-center">
+            <form type="get" class="mainForm">
+                <div>
+                    <label class="form-label" for="name">nome:</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <button type="button" id="warrior" name="warrior"><img src="images/warrior.png"  alt=""></button>
+                        </li>
+                        <li>
+                            <button type="button" id="mage" name="mage"><img src="images/mage.png" alt=""></button>
+                        </li>
+                        <li>
+                            <button type="button" id="archer" name="archer"><img src="images/archer.png"  alt=""></button>
+                        </li>
+                    </ul>
+                </div>
+                <h2>aumente atributos (máximo 10)</h2>
+                <p id="sum">Soma: 3</p>
+                <div>
+                    <label class="form-label" for="ataque" class="win10-thumb">ataque</label>
+                    <input type="range" class="form-range" max="10" min="0" value="0" name="ataque" id="ataque" oninput="calculaSoma()">
+                </div>
+                <div>
+                    <label class="form-label" for="vida">vida:</label>
+                    <input class="form-range" type="range"  max="10" min="0" value="0" name="vida" id="vida" oninput="calculaSoma()">
+                </div>
+                <div>
+                    <label class="form-label" for="defesa">defesa:</label>
+                    <input type="range" class="form-range"  max="10" min="0" value="0" name="defesa" id="defesa" oninput="calculaSoma()">
+                </div>
+                <input type="submit" class="btn btn-primary btn-lg" value="Finalizar">
+            </form>
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+        <script src="script.js"></script>    
+    </body>
+    </html>
