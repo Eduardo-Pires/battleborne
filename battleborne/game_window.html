@@ -80,6 +80,32 @@
         // Lógica para o quarto ataque
       }
 
+      async function getAttackKit(type) {
+        try {
+            var response = await fetch(`http://localhost:8080/habilities?profissao=${type}`);
+            var data = await response.json();
+
+            return data;
+        }
+        catch(error) {
+            console.log("Ainda não deu");
+        }
+      }
+
+      async function formatButtons(profession) {
+        var attackKit = await getAttackKit(profession);
+
+        var buttons = Array.from(document.getElementsByClassName("attackButton"));
+
+        console.log(attackKit);
+
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].textContent = attackKit[i].nomeHab;
+        }
+
+        console.log(buttons);
+      }
+
       window.onload = function() {
           document.getElementById("ataque1").addEventListener("click", ataque1);
           document.getElementById("ataque2").addEventListener("click", ataque2);
@@ -91,7 +117,9 @@
           }
 
           var character = JSON.parse(sessionStorage.getItem("personagem"));
-          console.log(character);
+          var profession = character["profissao"];
+
+          formatButtons(profession);
       };
     </script>
 </body>
