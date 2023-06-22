@@ -106,8 +106,6 @@
         console.log(buttons);
       }
 
-      
-
       window.onload = function() {
           document.getElementById("ataque1").addEventListener("click", ataque1);
           document.getElementById("ataque2").addEventListener("click", ataque2);
@@ -120,10 +118,8 @@
 
           var character = JSON.parse(sessionStorage.getItem("personagem"));
           var profession = character["profissao"];
-          console.log(profession); 
 
           formatButtons(profession);
-         // formatCharacter(profession);
       };
     </script>
 </body>
