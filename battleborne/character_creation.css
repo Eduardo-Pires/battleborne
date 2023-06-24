@@ -95,13 +95,16 @@ body {
     background-color: transparent;
     border: none;
   }
-  
-  #warrior:hover,
-  #mage:hover,
-  #archer:hover {
+
+  button#warrior:hover,
+  button#mage:hover,
+  button#archer:hover,
+  button#warrior.active,
+  button#mage.active,
+  button#archer.active {
     background-color: #cccccc45;
   }
-  
+
   /* Estilos para os ranges */
   input[type="range"] {
     width: 50%;
