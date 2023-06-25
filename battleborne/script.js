@@ -108,7 +108,7 @@ async function submitForm(e) {
     
   }
   catch(error) {
-    alert("Erro na criação de personagem");
+    alert("Erro na criação de personagem, tente mudar o nome do seu herói");
     console.log(error);
   }
 }
