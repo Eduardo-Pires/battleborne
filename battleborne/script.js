@@ -8,6 +8,35 @@ function alteraValorProfissao(valor) {
   tipoProfissao = valor;
 }
 
+function alteraValorProfissao(valor) {
+    tipoProfissao = valor;
+}
+
+function calculaSoma() {
+    const range1 =  document.getElementById("ataque");
+    const range2 =  document.getElementById("vida");
+    const range3 =  document.getElementById("defesa");
+
+    var range1Value = parseInt(range1.value);
+    var range2Value = parseInt(range2.value);
+    var range3Value = parseInt(range3.value);
+    
+    var sum = range1Value + range2Value + range3Value;
+    
+    if (sum > 10) {
+        window.alert("Soma maior que 10");
+        range1.value = 0;
+        range2.value = 0;
+        range3.value = 0;
+        document.getElementById("sum").textContent = "Soma: " + 0;
+    }
+    else
+    {
+        document.getElementById("sum").textContent = "Soma: " + sum;
+    }  
+}
+
+
 guerreiro.addEventListener("click", function() {
   alteraValorProfissao("Guerreiro");
   activateButton(guerreiro);
@@ -64,6 +93,17 @@ async function submitForm(e) {
   var response = await fetch("http://localhost:8080/session", options);
 
   console.log(response);
+  try {
+    var response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
+    var data = await response.json();
+    sessionStorage.setItem("personagem", JSON.stringify(data));
+
+    window.location.href = "game_window.html";
+  }
+  catch(error) {
+    alert("Erro na criação de personagem");
+    console.log(error);
+  }
 }
 
 mainForm.addEventListener("submit", submitForm);

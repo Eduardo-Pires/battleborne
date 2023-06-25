@@ -30,7 +30,7 @@
                 var data = await response.json();
                 sessionStorage.setItem("personagem", JSON.stringify(data));
 
-                window.location.href = "http://127.0.0.1:3000/game_window.html";
+                window.location.href = "game_window.html";
             }
             catch(error) {
                 alert("Esse personagem não existe");
