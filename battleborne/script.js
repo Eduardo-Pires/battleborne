@@ -90,15 +90,22 @@ async function submitForm(e) {
     headers: { 'Content-Type': 'application/json' }
   };
 
-  var response = await fetch("http://localhost:8080/session", options);
-
-  console.log(response);
   try {
-    var response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
-    var data = await response.json();
-    sessionStorage.setItem("personagem", JSON.stringify(data));
+    var response = await fetch("http://localhost:8080/session", options);
+    if (!response.ok)
+    {
+        throw new Error(response.statusText);
+    }
+    else
+    {
+        response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
+        var data = await response.json();
+        sessionStorage.setItem("personagem", JSON.stringify(data));
+    
+        window.location.href = "game_window.html";
 
-    window.location.href = "game_window.html";
+    }
+    
   }
   catch(error) {
     alert("Erro na criação de personagem");
