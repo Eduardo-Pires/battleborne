@@ -1,3 +1,5 @@
+var character = JSON.parse(sessionStorage.getItem("personagem"));
+
 function enemyAttack(){
     let attackButtons = Array.from(document.getElementsByClassName("attackButton"));
 
@@ -7,7 +9,7 @@ function enemyAttack(){
 
     setTimeout(function() {
         heroHealthBar = document.querySelector("#heroi > div > progress");
-        heroHealthBar.value = health_bar.value - 10;
+        heroHealthBar.value = heroHealthBar.value - 10;
     }, 800);
 
     attackButtons.forEach(function(button) {
@@ -18,7 +20,11 @@ function enemyAttack(){
 function ataque(forca, tipo) {
   enemyHealthBar = document.querySelector("#inimigo > div > progress");
   enemyHealthBar.value -= forca;
-  enemyAttack();
+  if (enemyHealthBar.value <= 0){ 
+    passarNivel();
+  }else{
+      enemyAttack();
+  }
 }
 
 async function getAttackKit(type) {
@@ -43,7 +49,6 @@ async function formatButtons(character) {
   for (let i = 0; i < buttons.length; i++) {
       buttons[i].textContent = attackKit[i].nomeHab;
       forcaAtaque = attackKit[i].forca + attackKit[i].forca * attackAddOn;
-      console.log(forcaAtaque);
       buttons[i].addEventListener("click", () => {
           ataque((attackKit[i].forca)+attackAddOn, attackKit[i].tipo);
       });
@@ -52,7 +57,7 @@ async function formatButtons(character) {
 
 function formatCharacter(character) {
     heroHealthBar = document.querySelector("#heroi > div > progress");
-    heroHealthBar.max = character['vida'];
+    //heroHealthBar.max = character['vida']
 
     switch (character["profissao"]) {
         case "Guerreiro":
@@ -67,13 +72,43 @@ function formatCharacter(character) {
     }
 }
 
+async function passarNivel() {
+    var nomePersonagem = character['nome'];
+    var novoNivel = character["nivel"] + 1;
+  
+    var data = {
+      nivel: novoNivel
+    };
+  
+    const options = {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    };
+  
+    try {
+      var response = await fetch(`http://localhost:8080/session/update-level?nome=${nomePersonagem}`, options);
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      } else {
+        response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
+        var data = await response.json();
+        sessionStorage.setItem("personagem", JSON.stringify(data));
+      }
+    } catch (error) {
+      alert("Erro na atualização do nível do personagem. Tente novamente.");
+      console.log(error);
+    }
+  }
+  
+  
+
 
 window.onload = function() {
     if (sessionStorage.length === 0) {
       window.location.href = "http://127.0.0.1:3000/";
     }
 
-    var character = JSON.parse(sessionStorage.getItem("personagem"));
     formatCharacter(character);
     formatButtons(character);
 };

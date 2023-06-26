@@ -30,4 +30,10 @@ public class SessaoController {
         Sessao sessao = sessaoService.returnExistingSession(nome);
         return ResponseEntity.ok(sessao);
     }
+
+    @PutMapping("/update-level")
+    public ResponseEntity<String> updateSessionLevel(@RequestBody Requisicao requisicao, @RequestParam Integer nivel) {
+        sessaoService.atualizarDadoSessao(requisicao, "nivel", nivel);
+        return ResponseEntity.ok("Nível da sessão atualizado com sucesso.");
+    }
 }

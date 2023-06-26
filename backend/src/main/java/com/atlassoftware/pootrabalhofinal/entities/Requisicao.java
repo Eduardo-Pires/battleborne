@@ -6,6 +6,18 @@ public class Requisicao {
     private Integer ataque;
     private Integer vida;
     private Integer defesa;
+    private Integer nivel;
+    {
+        nivel = 1;
+    }
+
+    public Integer getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(Integer nivel) {
+        this.nivel = nivel;
+    }
 
     public String getNomeReq() {
         return nomeReq;

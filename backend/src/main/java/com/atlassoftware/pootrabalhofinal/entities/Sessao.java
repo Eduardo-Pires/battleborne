@@ -52,6 +52,7 @@ public class Sessao {
         return nivel;
     }
 
+
     public static class SessaoBuilder {
         private String nome;
         private String profissao;

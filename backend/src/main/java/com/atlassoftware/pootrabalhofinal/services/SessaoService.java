@@ -23,6 +23,31 @@ public class SessaoService {
         sessaoRepository.save(sessao);
     }
 
+    public void atualizarDadoSessao(Requisicao requisicao, String dado, Object valor) {
+        Sessao.SessaoBuilder builder = new Sessao.SessaoBuilder()
+                .setNome(requisicao.getNomeReq())
+                .setProfissao(requisicao.getProfissao())
+                .setVida(requisicao.getVida())
+                .setAtaque(requisicao.getAtaque())
+                .setDefesa(requisicao.getDefesa())
+                .setNivel(requisicao.getNivel());
+
+        switch (dado) {
+            case "nome" -> builder.setNome((String) valor);
+            case "profissao" -> builder.setProfissao((String) valor);
+            case "vida" -> builder.setVida((Integer) valor);
+            case "ataque" -> builder.setAtaque((Integer) valor);
+            case "defesa" -> builder.setDefesa((Integer) valor);
+            case "nivel" -> builder.setNivel((Integer) valor);
+            default -> throw new IllegalArgumentException();
+        }
+
+        Sessao sessao = builder.build();
+        sessaoRepository.save(sessao);
+    }
+
+
+
     public Sessao returnExistingSession(String nome) {
         return sessaoRepository.findByNome(nome);
     }
