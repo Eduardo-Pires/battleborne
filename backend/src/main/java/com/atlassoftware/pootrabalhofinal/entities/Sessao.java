@@ -22,7 +22,7 @@ public class Sessao {
     @Column(name = "nivel")
     private Integer nivel;
 
-    private Sessao() {}
+    protected Sessao() {}
 
     public Long getId() {
         return id;

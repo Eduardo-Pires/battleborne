@@ -12,7 +12,7 @@ public class HabilidadeMago implements Skills {
         habilidades.add(new Habilidade("Magia", 5.0, "Ataque"));
         habilidades.add(new Habilidade("Mais magia", 7.5, "Ataque"));
         habilidades.add(new Habilidade("MAAAAAGIIIIIAAAAA", 10.0, "Ataque"));
-        habilidades.add(new Habilidade("Cura", 0.0, "Buff"));
+        habilidades.add(new Habilidade("Cura", 5.0, "Buff-cura"));
 
         return habilidades;
     }

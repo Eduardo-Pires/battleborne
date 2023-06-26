@@ -12,7 +12,7 @@ public class HabilidadeGuerreiro implements Skills {
         habilidades.add(new Habilidade("Giro de Espada", 5.0, "Ataque"));
         habilidades.add(new Habilidade("Esgrima", 7.5, "Ataque"));
         habilidades.add(new Habilidade("Guilhotina", 10.0, "Ataque"));
-        habilidades.add(new Habilidade("Bloqueio", 0.0, "Buff"));
+        habilidades.add(new Habilidade("Bloqueio", 5.0, "Buff-defesa"));
 
         return habilidades;
     }

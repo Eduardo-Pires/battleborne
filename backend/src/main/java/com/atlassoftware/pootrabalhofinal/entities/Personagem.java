@@ -17,7 +17,7 @@ public class Personagem {
     @JoinColumn(name = "Profissao_idProfissao")
     private Profissao profissao;
 
-    private Personagem() {}
+    protected Personagem() {}
 
     public Long getId() {
         return id;
