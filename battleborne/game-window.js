@@ -1,30 +1,31 @@
-function enemyAtack(){
-    let atkButtons = Array.from(document.getElementsByClassName("attackButton"));
+function enemyAttack(){
+    let attackButtons = Array.from(document.getElementsByClassName("attackButton"));
 
-    atkButtons.forEach(function(button) {
+    attackButtons.forEach(function(button) {
         button.disabled = true;
     });
 
     setTimeout(function() {
-    health_bar = document.querySelector("#heroi > div > progress");
-    health_bar.value = health_bar.value - 10;
+        heroHealthBar = document.querySelector("#heroi > div > progress");
+        heroHealthBar.value = health_bar.value - 10;
     }, 800);
-    atkButtons.forEach(function(button) {
+
+    attackButtons.forEach(function(button) {
         button.disabled = false;
     });
 }
 
 function ataque(forca, tipo) {
-  health_bar = document.querySelector("#inimigo > div > progress");
-  health_bar.value = health_bar.value - forca;
-  enemyAtack();
+  enemyHealthBar = document.querySelector("#inimigo > div > progress");
+  enemyHealthBar.value -= forca;
+  enemyAttack();
 }
 
 async function getAttackKit(type) {
   try {
       var response = await fetch(`http://localhost:8080/habilities?profissao=${type}`);
       var data = await response.json();
-      
+
       return data;
   }
   catch(error) {
@@ -39,25 +40,20 @@ async function formatButtons(character) {
 
   let buttons = Array.from(document.getElementsByClassName("attackButton"));
 
-  console.log(attackKit);
-
   for (let i = 0; i < buttons.length; i++) {
       buttons[i].textContent = attackKit[i].nomeHab;
-      forcaAtaque = attackKit[i].forca + attackKit[i].forca * attackAddOn; 
+      forcaAtaque = attackKit[i].forca + attackKit[i].forca * attackAddOn;
       console.log(forcaAtaque);
       buttons[i].addEventListener("click", () => {
           ataque((attackKit[i].forca)+attackAddOn, attackKit[i].tipo);
       });
   }
-
-  console.log(buttons);
 }
 
 function formatCharacter(character) {
-    health_bar = document.querySelector("#heroi > div > progress");
-    health_bar.max = character['vida'];
+    heroHealthBar = document.querySelector("#heroi > div > progress");
+    heroHealthBar.max = character['vida'];
 
-  
     switch (character["profissao"]) {
         case "Guerreiro":
             document.querySelector("#heroi > img").src = "sprites/static_sprites/warrior.png";
@@ -73,7 +69,6 @@ function formatCharacter(character) {
 
 
 window.onload = function() {
-    
     if (sessionStorage.length === 0) {
       window.location.href = "http://127.0.0.1:3000/";
     }
