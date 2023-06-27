@@ -3,34 +3,34 @@
 html{
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(images/a\ simple\ pixel\ \ 1.png);
+  background-image: url("../images/criacao_personagem.png");
   background-color: #0B0910;
 }
 
 body {
     background-size: cover;
     background-repeat: no-repeat;
-    background-image: url(images/a\ simple\ pixel\ \ 1.png);
+    background-image: url("../images/criacao_personagem.png");
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
   }
 
-  
+
   h1 {
     text-align: center;
   }
-  
+
   div {
     margin-bottom: 10px;
   }
-  
+
   label {
     font-weight: bold;
     display: flex;
     justify-content: center;
   }
-  
+
   input[type="text"],
   input[type="range"] {
     width: 50%;
@@ -40,13 +40,13 @@ body {
     margin: 0 auto;
     display: block;
   }
-  
+
   input[type="range"] {
     height: 5px;
     padding: 10px;
-    
+
   }
-  
+
   ul {
     list-style: none;
     padding: 0;
@@ -54,18 +54,18 @@ body {
     display: flex;
     justify-content: center;
   }
-  
+
   li {
     margin-right: 10px;
   }
-  
+
   button {
     border: none;
     background-color: transparent;
     cursor: pointer;
     padding: 0;
   }
-  
+
   input[type="submit"] {
     margin-top: 20px;
   }
@@ -74,13 +74,13 @@ body {
     max-width: 100%;
     height: auto;
   }
-  
+
 /*Estilos específicos*/
   #name {
     width: 50%;
     margin: 0 auto;
   }
-  
+
   #warrior > img,
   #mage > img,
   #archer > img
@@ -112,4 +112,3 @@ body {
     border-radius: 5px;
     margin: 0 auto;
   }
-  
