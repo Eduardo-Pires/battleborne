@@ -5,6 +5,6 @@ public class HobGoblin extends InimigoBase {
         nome = "HobGoblin";
         tipo = "Médio";
         vida = 100;
-        ataque = 2;
+        ataque = 6;
     }
 }

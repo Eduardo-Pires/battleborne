@@ -1,34 +1,61 @@
 var character = JSON.parse(sessionStorage.getItem("personagem"));
 var enemy;
 
+var ataqueDuplicado = 0;
+var debuff = 0;
+
 if (character["nivel"] !== 2) {
   window.location.href = "/1";
 }
 
-function enemyAttack(){
-    let attackButtons = Array.from(document.getElementsByClassName("attackButton"));
+function enemyAttack(debuff){
+  let attackButtons = Array.from(document.getElementsByClassName("attackButton"));
 
-    attackButtons.forEach(function(button) {
-        button.disabled = true;
-    });
+  attackButtons.forEach(function(button) {
+      button.disabled = true;
+  });
 
-    setTimeout(function() {
-        heroHealthBar = document.querySelector("#heroi > div > progress");
-        heroHealthBar.value = (heroHealthBar.value - enemy["ataque"]);
-    }, 800);
+  setTimeout(function() {
+      heroHealthBar = document.querySelector("#heroi > div > progress");
+      heroHealthBar.value = (heroHealthBar.value - Math.abs(enemy["ataque"] - (debuff/10)));
+      console.log(Math.abs(enemy["ataque"] - (debuff/10)));
+  }, 800);
 
-    attackButtons.forEach(function(button) {
-        button.disabled = false;
-    });
+  attackButtons.forEach(function(button) {
+      button.disabled = false;
+  });
 }
 
 function ataque(forca, tipo) {
   enemyHealthBar = document.querySelector("#inimigo > div > progress");
-  enemyHealthBar.value -= forca;
+  heroHealthBar = document.querySelector("#heroi > div > progress");
+
+  if (tipo !== undefined) {
+    switch (tipo) {
+      case "Buff-ataque":
+        ataqueDuplicado = forca * 2;
+        break;
+      case "Buff-cura":
+        heroHealthBar.value += (heroHealthBar.max * (forca/100));
+        break;
+      case "Buff-defesa":
+        debuff = forca;
+        break;
+      case "Ataque":
+        if (ataqueDuplicado !== 0) {
+          enemyHealthBar.value -= ataqueDuplicado;
+        }
+        enemyHealthBar.value -= forca;
+        ataqueDuplicado = 0;
+        break;
+    }
+  }
+
   if (enemyHealthBar.value <= 0){
     passarNivel();
-  }else{
-      enemyAttack();
+  } else {
+    enemyAttack(debuff);
+    debuff = 0;
   }
 }
 
@@ -50,10 +77,10 @@ async function getEnemyKit(id) {
     var data = await response.json();
 
     return data;
-}
-catch(error) {
-    console.log("Ainda não deu");
-}
+  }
+  catch(error) {
+      console.log("Ainda não deu");
+  }
 }
 
 async function formatButtons(character) {

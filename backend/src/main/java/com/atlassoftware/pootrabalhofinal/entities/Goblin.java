@@ -5,6 +5,6 @@ public class Goblin extends InimigoBase {
         nome = "Goblin";
         tipo = "Fácil";
         vida = 50;
-        ataque = 1;
+        ataque = 4;
     }
 }
