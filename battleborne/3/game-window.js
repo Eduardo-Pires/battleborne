@@ -4,8 +4,12 @@ var enemy;
 var ataqueDuplicado = 0;
 var debuff = 0;
 
-if (character["nivel"] !== 3) {
-  window.location.href = "/2";
+try {
+  if (character["nivel"] !== 3) {
+    window.location.href = "/2";
+  }
+} catch (error) {
+  window.location.href = "/";
 }
 
 //controla o ataque do inimigo e aplica o debuff de defesa que é utilizado pela classe Guerreiro
