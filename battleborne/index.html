@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="home.css">
-    <title>BATTLEBORNE HOME</title>
-</head>
-<body>
-    <main>
-        <h1>BATTLEBORNE</h1>
-        <form id="mainForm">
-            <input type="text" name="nome" id="nome" placeholder="nome do herói">
-            <input type="submit" value="ENTRAR">
-        </form>
-            <a href="character_creation.html">não tem seu herói ainda? crie agora mesmo</a>
-    </main>
-    <script>
-        const form = document.querySelector("form");
-        form.onsubmit = enviaForm;
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="home.css">
+        <title>BATTLEBORNE HOME</title>
+    </head>
+    <body>
+        <main>
+            <h1>BATTLEBORNE</h1>
+            <form id="mainForm">
+                <input type="text" name="nome" id="nome" placeholder="Nome do Herói">
+                <input type="submit" value="ENTRAR">
+            </form>
+            <a href="character_creation.html">Não tem seu herói ainda? Crie agora mesmo</a>
+        </main>
+        <script>
+            const form = document.querySelector("form");
+            form.onsubmit = enviaForm;
 
-        async function enviaForm(e) {
-            e.preventDefault();
+            async function enviaForm(e) {
+                e.preventDefault();
 
-            var nome = document.querySelector("#nome").value;
+                var nome = document.querySelector("#nome").value;
 
-            try {
-                var response = await fetch(`http://localhost:8080/session/search?nome=${nome}`);
-                var data = await response.json();
-                sessionStorage.setItem("personagem", JSON.stringify(data));
+                try {
+                    var response = await fetch(`http://localhost:8080/session/search?nome=${nome}`);
+                    var data = await response.json();
+                    sessionStorage.setItem("personagem", JSON.stringify(data));
 
-                window.location.href = `/${data["nivel"]}`;
+                    window.location.href = `/${data["nivel"]}`;
+                }
+                catch(error) {
+                    alert("Esse personagem não existe");
+                    console.log(error);
+                }
             }
-            catch(error) {
-                alert("Esse personagem não existe");
-                console.log(error);
-            }
-        }
-    </script>
-</body>
+        </script>
+    </body>
 </html>

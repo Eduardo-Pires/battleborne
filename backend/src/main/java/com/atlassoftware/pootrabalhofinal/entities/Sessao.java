@@ -2,6 +2,7 @@ package com.atlassoftware.pootrabalhofinal.entities;
 
 import jakarta.persistence.*;
 
+// Classe Sessão usada para criar o save do jogador
 @Entity
 @Table(name = "sessao")
 public class Sessao {
@@ -52,7 +53,8 @@ public class Sessao {
         return nivel;
     }
 
-
+    // Usando o padrão Builder para não deixar que o usuário escolha o nível do personagem por conta própria,
+    // além de permitir com que possamos colocar apenas os atributos necessários no banco.
     public static class SessaoBuilder {
         private String nome;
         private String profissao;

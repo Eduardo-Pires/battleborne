@@ -12,7 +12,7 @@ function alteraValorProfissao(valor) {
     tipoProfissao = valor;
 }
 
-//implementa regra de negócio para limitar a somatória 
+//implementa regra de negócio para limitar a somatória
 function calculaSoma() {
     const range1 =  document.getElementById("ataque");
     const range2 =  document.getElementById("vida");
@@ -21,9 +21,9 @@ function calculaSoma() {
     var range1Value = parseInt(range1.value);
     var range2Value = parseInt(range2.value);
     var range3Value = parseInt(range3.value);
-    
+
     var sum = range1Value + range2Value + range3Value;
-    
+
     if (sum > 20) {
         window.alert("Soma maior que 20");
         range1.value = 0;
@@ -34,7 +34,7 @@ function calculaSoma() {
     else
     {
         document.getElementById("sum").textContent = "Soma: " + sum;
-    }  
+    }
 }
 
 
@@ -103,11 +103,11 @@ async function submitForm(e) {
         response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
         var data = await response.json();
         sessionStorage.setItem("personagem", JSON.stringify(data));
-    
-        window.location.href = "1/";
+
+        window.location.href = "/1";
 
     }
-    
+
   }
   catch(error) {
     alert("Erro na criação de personagem, tente mudar o nome do seu herói");

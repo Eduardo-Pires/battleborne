@@ -1,8 +1,9 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
-// Factory usdaa para gerar os inimigos que serão mostrados nas fases
+// Factory usada para gerar os inimigos que serão mostrados nas fases
 public class HabilidadeFactory implements FactoryMethod<Habilidade> {
 
+    // Retorna o objeto requisitado com base no nível do jogador
     @Override
     public Skills create(String profissao) {
         return switch (profissao) {

@@ -2,6 +2,7 @@ package com.atlassoftware.pootrabalhofinal.entities;
 
 import jakarta.persistence.*;
 
+// Defasado
 @Entity
 @Table(name = "profissao")
 public class Profissao {

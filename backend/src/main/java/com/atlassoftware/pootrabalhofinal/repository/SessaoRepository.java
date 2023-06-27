@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface SessaoRepository extends JpaRepository<Sessao, Long> {
-    Sessao findByNome(String nome);
+    Sessao findByNome(String nome); // Método exclusivo para que possamos pegar a sessão do jogador através do nome do personagem dele
 }

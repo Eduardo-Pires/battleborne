@@ -1,5 +1,6 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
+// Classe Requisicao auxiliar para a criação de nova Sessão
 public class Requisicao {
     private String nomeReq;
     private String profissao;
@@ -7,9 +8,6 @@ public class Requisicao {
     private Integer vida;
     private Integer defesa;
     private Integer nivel;
-    {
-        nivel = 1;
-    }
 
     public Integer getNivel() {
         return nivel;
