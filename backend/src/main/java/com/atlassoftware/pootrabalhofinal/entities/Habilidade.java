@@ -3,6 +3,7 @@ package com.atlassoftware.pootrabalhofinal.entities;
 import java.io.Serial;
 import java.io.Serializable;
 
+// Classe Habilidade usada pelo Factory Method
 public class Habilidade implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;

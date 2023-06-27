@@ -1,7 +1,6 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
-import java.util.List;
-
-public interface AbstractFactory<T> {
+// Interface criada para o padrão Factory Method
+public interface FactoryMethod<T> {
     Skills create(String profissao);
 }

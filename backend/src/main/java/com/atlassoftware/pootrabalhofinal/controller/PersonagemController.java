@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+// Controlador obsoleto, apagar depois
+
 @RestController
 @RequestMapping("/character")
 public class PersonagemController {
@@ -24,16 +26,4 @@ public class PersonagemController {
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok("Hello from Character");
     }
-
-    /*@PostMapping
-    public ResponseEntity<Personagem> createNew(@RequestBody Requisicao req) {
-        Optional<Profissao> profissao = profissaoRepository.findById(req.getProfissao());
-        Personagem personagem = new Personagem.PersonagemBuilder()
-                .setNome(req.getNomeReq())
-                .setProfissao(profissao.get())
-                .setNivel(1)
-                .build();
-        personagemRepository.save(personagem);
-        return ResponseEntity.ok(personagem);
-    }*/
 }

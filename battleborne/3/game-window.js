@@ -19,17 +19,18 @@ function enemyAttack(debuff){
   setTimeout(function() {
       heroHealthBar = document.querySelector("#heroi > div > progress");
       heroHealthBar.value = (heroHealthBar.value - Math.abs(enemy["ataque"] - (debuff/10)));
-      if (heroHealthBar.value < 0) gameOver();
+      if (heroHealthBar.value <= 0) gameOver();
   }, 800);
   setTimeout(() => {
     attackButtons.forEach(function(button) {
       button.disabled = false;
   });
-  }, 810); 
+  }, 810);
 }
 
 function gameOver() {
-  location.reload();
+  alert("Você foi de Americanas! :)")
+  window.location.reload();
 }
 
 //utiliza os valores de força e tipo para manipular os ataques do usuário
@@ -109,11 +110,11 @@ async function formatButtons(character) {
   }
 }
 
-//com base no usuario atual, muda o tamanho da vida e muda a imagem 
+//com base no usuario atual, muda o tamanho da vida e muda a imagem
 function formatCharacter(character) {
   heroHealthBar = document.querySelector("#heroi > div > progress");
   heroHealthBar.max = (character['vida'] * 10);
-  
+
   document.querySelector("#heroi > img").src = `../sprites/static_sprites/${character["profissao"]}.png`;
 }
 

@@ -1,9 +1,6 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class HabilidadeFactory implements AbstractFactory<Habilidade> {
+public class HabilidadeFactory implements FactoryMethod<Habilidade> {
 
     @Override
     public Skills create(String profissao) {

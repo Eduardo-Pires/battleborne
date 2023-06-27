@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+// Controlador que irá retornar todos os dados de inimigos para a UI baseado no nível atual do jogador
+
 @RestController
 @RequestMapping("/enemy")
 public class InimigoController {

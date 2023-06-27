@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// Controlador que retornará as habilidades dos personagens para a UI
 @RestController
 @RequestMapping("/habilities")
 public class HabilidadeController {
