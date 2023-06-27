@@ -8,6 +8,7 @@ if (character["nivel"] !== 3) {
   window.location.href = "/2";
 }
 
+//controla o ataque do inimigo e aplica o debuff de defesa que é utilizado pela classe Guerreiro
 function enemyAttack(debuff){
   let attackButtons = Array.from(document.getElementsByClassName("attackButton"));
 
@@ -18,14 +19,20 @@ function enemyAttack(debuff){
   setTimeout(function() {
       heroHealthBar = document.querySelector("#heroi > div > progress");
       heroHealthBar.value = (heroHealthBar.value - Math.abs(enemy["ataque"] - (debuff/10)));
-      console.log(Math.abs(enemy["ataque"] - (debuff/10)));
+      if (heroHealthBar.value < 0) gameOver();
   }, 800);
-
-  attackButtons.forEach(function(button) {
+  setTimeout(() => {
+    attackButtons.forEach(function(button) {
       button.disabled = false;
   });
+  }, 810); 
 }
 
+function gameOver() {
+  location.reload();
+}
+
+//utiliza os valores de força e tipo para manipular os ataques do usuário
 function ataque(forca, tipo) {
   enemyHealthBar = document.querySelector("#inimigo > div > progress");
   heroHealthBar = document.querySelector("#heroi > div > progress");
@@ -59,6 +66,7 @@ function ataque(forca, tipo) {
   }
 }
 
+//recebe os ataques da classe do usuário da API
 async function getAttackKit(type) {
   try {
       var response = await fetch(`http://localhost:8080/habilities?profissao=${type}`);
@@ -71,6 +79,7 @@ async function getAttackKit(type) {
   }
 }
 
+//recebe os dados do inimigo na API
 async function getEnemyKit(id) {
   try {
     var response = await fetch(`http://localhost:8080/enemy/${id}`);
@@ -83,6 +92,7 @@ async function getEnemyKit(id) {
   }
 }
 
+//muda os nomes dos ataques com base nos ataques da profissão do usuario criado
 async function formatButtons(character) {
   var attackKit = await getAttackKit(character["profissao"]);
   let attackAddOn = character["ataque"]/100;
@@ -99,19 +109,20 @@ async function formatButtons(character) {
   }
 }
 
+//com base no usuario atual, muda o tamanho da vida e muda a imagem 
 function formatCharacter(character) {
-    heroHealthBar = document.querySelector("#heroi > div > progress");
-    heroHealthBar.max = (character['vida'] * 10);
-
-    document.querySelector("#heroi > img").src = `../sprites/static_sprites/${character["profissao"]}.png`;
+  heroHealthBar = document.querySelector("#heroi > div > progress");
+  heroHealthBar.max = (character['vida'] * 10);
+  
+  document.querySelector("#heroi > img").src = `../sprites/static_sprites/${character["profissao"]}.png`;
 }
 
+//mensagem de fim de jogo
 function passarNivel() {
-  var eduardo = alert("Cabou o game, pode ir embora");
-  eduardo.addEventListener("click", () => {
-    window.close();
-  });
+  alert("Cabou o game, pode ir embora");
+  window.close();
 }
+
 window.onload = async function() {
     if (sessionStorage.length === 0) {
       window.location.href = "http://127.0.0.1:3000/";

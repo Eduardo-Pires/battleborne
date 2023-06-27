@@ -30,19 +30,19 @@
                         </li>
                     </ul>
                 </div>
-                <h2>aumente atributos (máximo 10)</h2>
-                <p id="sum">Soma: 0</p>
+                <h2>escolha os atributos (máximo 20)</h2>
+                <p id="sum">Soma: 15</p>
                 <div>
                     <label class="form-label" for="ataque" class="win10-thumb">ataque</label>
-                    <input type="range" class="form-range" max="10" min="0" value="0" name="ataque" id="ataque" oninput="calculaSoma()">
+                    <input type="range" class="form-range" min="5" max="15" value="0" name="ataque" id="ataque" oninput="calculaSoma()">
                 </div>
                 <div>
                     <label class="form-label" for="vida">vida:</label>
-                    <input class="form-range" type="range"  max="10" min="0" value="0" name="vida" id="vida" oninput="calculaSoma()">
+                    <input class="form-range" type="range"  max="15" min="5" value="0" name="vida" id="vida" oninput="calculaSoma()">
                 </div>
                 <div>
                     <label class="form-label" for="defesa">defesa:</label>
-                    <input type="range" class="form-range"  max="10" min="0" value="0" name="defesa" id="defesa" oninput="calculaSoma()">
+                    <input type="range" class="form-range"  max="15" min="5" value="0" name="defesa" id="defesa" oninput="calculaSoma()">
                 </div>
                 <input type="submit" class="btn btn-primary btn-lg" value="Finalizar">
             </form>

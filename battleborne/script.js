@@ -12,6 +12,7 @@ function alteraValorProfissao(valor) {
     tipoProfissao = valor;
 }
 
+//implementa regra de negócio para limitar a somatória 
 function calculaSoma() {
     const range1 =  document.getElementById("ataque");
     const range2 =  document.getElementById("vida");
@@ -23,8 +24,8 @@ function calculaSoma() {
     
     var sum = range1Value + range2Value + range3Value;
     
-    if (sum > 10) {
-        window.alert("Soma maior que 10");
+    if (sum > 20) {
+        window.alert("Soma maior que 20");
         range1.value = 0;
         range2.value = 0;
         range3.value = 0;
@@ -69,6 +70,7 @@ function activateButton(clickedButton) {
 
 var mainForm = document.querySelector(".mainForm");
 
+//função responsável por enviar os dados do formulário para o servidor
 async function submitForm(e) {
   e.preventDefault();
   var nomePersonagem = document.querySelector("#name").value;
@@ -102,7 +104,7 @@ async function submitForm(e) {
         var data = await response.json();
         sessionStorage.setItem("personagem", JSON.stringify(data));
     
-        window.location.href = "game_window.html";
+        window.location.href = "1/";
 
     }
     
