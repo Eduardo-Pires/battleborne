@@ -20,7 +20,7 @@ function enemyAttack(){
 function ataque(forca, tipo) {
   enemyHealthBar = document.querySelector("#inimigo > div > progress");
   enemyHealthBar.value -= forca;
-  if (enemyHealthBar.value <= 0){ 
+  if (enemyHealthBar.value <= 0){
     passarNivel();
   }else{
       enemyAttack();
@@ -57,52 +57,39 @@ async function formatButtons(character) {
 
 function formatCharacter(character) {
     heroHealthBar = document.querySelector("#heroi > div > progress");
-    //heroHealthBar.max = character['vida']
+    heroHealthBar.max = (character['vida'] * 10);
 
-    switch (character["profissao"]) {
-        case "Guerreiro":
-            document.querySelector("#heroi > img").src = "sprites/static_sprites/warrior.png";
-            break;
-        case "Arqueiro":
-            document.querySelector("#heroi > img").src = "sprites/static_sprites/archer.png";
-            break;
-        case "Mago":
-            document.querySelector("#heroi > img").src = "sprites/static_sprites/mage.png";
-            break;
-    }
+    document.querySelector("#heroi > img").src = `sprites/static_sprites/${character["profissao"]}.png`;
 }
 
 async function passarNivel() {
-    var nomePersonagem = character['nome'];
+    var nome = character['nome'];
     var novoNivel = character["nivel"] + 1;
-  
+
     var data = {
       nivel: novoNivel
     };
-  
+
     const options = {
       method: "PUT",
-      body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' }
     };
-  
+
     try {
-      var response = await fetch(`http://localhost:8080/session/update-level?nome=${nomePersonagem}`, options);
+      var response = await fetch(`http://localhost:8080/session/update-level?nome=${nome}&nivel=${novoNivel}`, options);
+
       if (!response.ok) {
         throw new Error(response.statusText);
-      } else {
-        response = await fetch(`http://localhost:8080/session/search?nome=${nomePersonagem}`);
-        var data = await response.json();
-        sessionStorage.setItem("personagem", JSON.stringify(data));
       }
+
+      var data = await response.json();
+      sessionStorage.setItem("personagem", JSON.stringify(data));
+      console.log(sessionStorage);
     } catch (error) {
       alert("Erro na atualização do nível do personagem. Tente novamente.");
       console.log(error);
     }
   }
-  
-  
-
 
 window.onload = function() {
     if (sessionStorage.length === 0) {
@@ -111,4 +98,5 @@ window.onload = function() {
 
     formatCharacter(character);
     formatButtons(character);
+
 };

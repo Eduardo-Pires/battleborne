@@ -104,4 +104,14 @@ public class Sessao {
             return sessao;
         }
     }
+
+    public SessaoBuilder toBuilder() {
+        return new SessaoBuilder()
+                .setNome(this.nome)
+                .setProfissao(this.profissao)
+                .setVida(this.vida)
+                .setAtaque(this.ataque)
+                .setDefesa(this.defesa)
+                .setNivel(this.nivel);
+    }
 }

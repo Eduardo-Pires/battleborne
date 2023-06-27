@@ -1,0 +1,88 @@
+@font-face{
+    font-family: game_font;
+    src: url("fonts/Pokemon_GB.ttf");
+}
+
+
+
+img {
+    margin-top: 10px;
+    height: 170px;
+}
+
+
+#heroi {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+
+#inimigo {
+    position: absolute;
+    top: 40%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.health-bar {
+    width: 200px;
+    height: 20px;
+    background-color: #ccc;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+progress[value] {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    background-color: #ffffff;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #cccccc2d;
+  
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #4CAF50;
+}
+
+.attack-grid {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+    justify-items: center;
+
+}
+
+#battle_frame{
+    position: absolute;
+    top: 81%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.attack-cell {
+    background-color: transparent;
+    width: 200px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: transparent;
+    font-family: game_font;
+    border: none;
+    color: rgb(55, 55, 55);
+    font-size: 16px;
+    cursor: pointer;
+}
