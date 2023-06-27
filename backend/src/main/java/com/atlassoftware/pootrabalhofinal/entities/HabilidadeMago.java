@@ -3,6 +3,8 @@ package com.atlassoftware.pootrabalhofinal.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Habilidade Mago gerada para Factory Method
 public class HabilidadeMago implements Skills {
 
     @Override

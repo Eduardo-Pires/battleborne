@@ -1,5 +1,6 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
+// Factory usdaa para gerar os inimigos que serão mostrados nas fases
 public class HabilidadeFactory implements FactoryMethod<Habilidade> {
 
     @Override

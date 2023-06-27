@@ -3,6 +3,7 @@ package com.atlassoftware.pootrabalhofinal.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+// Habilidade Arqueiro gerada para Factory Method
 public class HabilidadeArqueiro implements Skills {
 
     @Override

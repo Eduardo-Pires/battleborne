@@ -3,6 +3,8 @@ package com.atlassoftware.pootrabalhofinal.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Habilidade Guerreiro gerada para Factory Method
 public class HabilidadeGuerreiro implements Skills {
 
     @Override

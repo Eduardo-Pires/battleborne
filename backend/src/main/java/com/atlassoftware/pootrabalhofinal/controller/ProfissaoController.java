@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 // Construtor obsoleto, apagar depois
-
 @RestController
 @RequestMapping("/job")
 public class ProfissaoController {

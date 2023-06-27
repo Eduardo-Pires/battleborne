@@ -1,5 +1,6 @@
 package com.atlassoftware.pootrabalhofinal.entities;
 
+// Classe King Goblin (terceira fase) para Decorator
 public class KingGoblin extends InimigoBase {
     public KingGoblin() {
         nome = "Goblin Rei";
